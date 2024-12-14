@@ -437,6 +437,111 @@ section h2 {
     transform: translateY(-3px);
 }
 
+/* Roadmap Section */
+.roadmap {
+    background: linear-gradient(135deg, #f8f9ff 0%, #f0f2ff 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.roadmap::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(0, 229, 201, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 59, 123, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.roadmap-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+    .roadmap-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .roadmap-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.phase-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.phase-card:hover {
+    transform: translateY(-5px);
+}
+
+.phase-header {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid rgba(124, 58, 237, 0.1);
+}
+
+.phase-header h3 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.phase-title {
+    color: var(--accent-color);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.phase-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.phase-items li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    font-size: 1rem;
+    padding: 0.5rem 0;
+}
+
+.phase-items li i {
+    margin-right: 1rem;
+    font-size: 1.2rem;
+}
+
+.phase-items li.completed {
+    color: var(--secondary-color);
+}
+
+.phase-items li.completed i {
+    color: var(--secondary-color);
+}
+
+.phase-items li i.fa-circle {
+    font-size: 0.8rem;
+    opacity: 0.5;
+}
+
 /* Footer */
 footer {
     background-color: var(--text-color);
@@ -492,7 +597,12 @@ footer {
 
     .features-grid,
     .furfluencer-grid,
-    .token-features {
+    .token-features,
+    .roadmap-container {
         grid-template-columns: 1fr;
+    }
+
+    .phase-card {
+        margin-bottom: 1rem;
     }
 }

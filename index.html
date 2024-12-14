@@ -7,6 +7,47 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        .token-address-container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .address-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .address-box code {
+            font-family: monospace;
+            font-size: 16px;
+            color: #fff;
+            word-break: break-all;
+        }
+
+        .copy-btn {
+            background: none;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .copy-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -166,6 +207,16 @@
             <h2>FURF Token</h2>
             <p class="section-subtitle">FURF Token: The Currency of Pet Content Creation</p>
             
+            <div class="token-address-container">
+                <h3>Token Contract Address (Solana)</h3>
+                <div class="address-box">
+                    <code id="contractAddress">4cNKzJ75MpFSCFfN1mQnsNDNNDg5Dd5GT7Yaue9WApnX</code>
+                    <button onclick="copyAddress()" class="copy-btn">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+
             <div class="token-features">
                 <div class="token-card">
                     <div class="icon-wrapper gradient-1">
@@ -196,11 +247,11 @@
         <div class="container">
             <h2>Join The Revolution Where Every Pet Can Earn</h2>
             <div class="social-links">
-                <a href="#" class="social-btn telegram">
+                <a href="https://t.me/furfluencer" target="_blank" class="social-btn telegram">
                     <i class="fab fa-telegram"></i>
                     <span>Telegram</span>
                 </a>
-                <a href="#" class="social-btn twitter">
+                <a href="https://x.com/Furfluencer" target="_blank" class="social-btn twitter">
                     <i class="fab fa-twitter"></i>
                     <span>Twitter</span>
                 </a>
@@ -214,6 +265,17 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        function copyAddress() {
+            const contractAddress = document.getElementById('contractAddress').textContent;
+            navigator.clipboard.writeText(contractAddress).then(() => {
+                const copyBtn = document.querySelector('.copy-btn');
+                copyBtn.innerHTML = '<i class="fas fa-check"></i>';
+                setTimeout(() => {
+                    copyBtn.innerHTML = '<i class="fas fa-copy"></i>';
+                }, 2000);
+            });
+        }
+    </script>
 </body>
 </html>

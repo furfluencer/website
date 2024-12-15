@@ -1,51 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XLZRGMN70V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XLZRGMN70V');
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FURF - The Furfluencer Revolution on Solana</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         .token-address-container {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 20px;
-            margin: 20px 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 40px auto;
             text-align: center;
+            max-width: 800px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            animation: pulse 2s infinite;
+        }
+
+        .token-address-container h3 {
+            color: #4a90e2;
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .token-address-container .description-text {
+            color: #9ecaff;
+            margin-bottom: 15px;
+            font-size: 16px;
+            font-weight: 500;
         }
 
         .address-box {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            background: rgba(0, 0, 0, 0.2);
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 10px;
+            gap: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .address-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.1),
+                transparent
+            );
+            animation: shine 3s infinite;
         }
 
         .address-box code {
-            font-family: monospace;
-            font-size: 16px;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 20px;
             color: #fff;
+            font-weight: 500;
+            letter-spacing: 1px;
             word-break: break-all;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
         }
 
         .copy-btn {
-            background: none;
-            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             color: #fff;
             cursor: pointer;
-            padding: 8px;
-            border-radius: 4px;
+            padding: 12px;
+            border-radius: 8px;
             transition: all 0.3s ease;
+            font-size: 18px;
         }
 
         .copy-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        .dex-link-container {
+            text-align: center;
+            margin: 30px auto;
+            max-width: 300px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            display: block;
+        }
+
+        .dex-link-container a {
+            display: block;
+            text-decoration: none;
+        }
+
+        .dex-link-container img {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-width: 300px;
+            border: 3px solid #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            object-fit: contain;
+        }
+
+        .dex-link-container a:hover img {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
         }
     </style>
 </head>
@@ -53,7 +150,7 @@
     <nav>
         <div class="container">
             <div class="logo">
-                <h1>FURF</h1>
+                <h1>Furfluencer</h1>
             </div>
             <div class="nav-links">
                 <a href="#about">About</a>
@@ -69,12 +166,12 @@
     <header class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>FURF</h1>
+                <h1>GET FURF</h1>
                 <p class="tagline">The Furfluencer Revolution</p>
-                <p class="subtitle">Transform Your Pet Into A Web3 Sensation! Join the first pet-powered creator economy on Solana where every tail has a tale.</p>
+                <p class="subtitle">Transform Your Pet Into A Web3 Sensation! Get your FURF coins today and Join the first pet-powered creator economy on Solana where every tail has a tale.</p>
                 <div class="cta-buttons">
-                    <a href="#" class="btn primary">Buy FURF</a>
-                    <a href="#" class="btn secondary">Join Community</a>
+                    <a href="https://dexscreener.com/solana/8eeosrakq1qdwwslzlmvyrgcctqnmkdmypggdj6gum8q" target="_blank" class="btn primary">Buy FURF</a>
+                    <a href="https://t.me/furfluencer" target="_blank" class="btn secondary">Join Community</a>
                 </div>
             </div>
             <div class="hero-image">
@@ -208,12 +305,18 @@
             <p class="section-subtitle">FURF Token: The Currency of Pet Content Creation</p>
             
             <div class="token-address-container">
-                <h3>Token Contract Address (Solana)</h3>
+                <h3>🌟 FURF Token Contract Address 🌟</h3>
+                <p class="description-text">Save this address to interact with FURF token on Solana</p>
                 <div class="address-box">
-                    <code id="contractAddress">4cNKzJ75MpFSCFfN1mQnsNDNNDg5Dd5GT7Yaue9WApnX</code>
-                    <button onclick="copyAddress()" class="copy-btn">
+                    <code id="contractAddress">4ztHE9a8VW8eGs35PzikWMUQnCVwVb1NsRixArDpoVnV</code>
+                    <button onclick="copyAddress()" class="copy-btn" title="Copy to clipboard">
                         <i class="fas fa-copy"></i>
                     </button>
+                </div>
+                <div class="dex-link-container">
+                    <a href="https://dexscreener.com/solana/8eeosrakq1qdwwslzlmvyrgcctqnmkdmypggdj6gum8q" target="_blank" title="View FURF on DexScreener">
+                       <img src="dexscreener.png" alt="DexScreener Chart" loading="lazy" />
+                    </a>
                 </div>
             </div>
 
